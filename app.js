@@ -22,7 +22,10 @@ let before = Date.now();
 
 process.on('unhandledRejection', (reason, promise) => {
   fs.writeFileSync(resolve(__dirname, './error'), reason.stack)
-  let msg = dingding.markdown('程序发生错误', '', '', core.manager)
+  let msg = dingding.markdown([
+    '####[程序发生错误]()',
+    `@${core.manager}`
+  ])
   dingding.send(msg)
 })
 
