@@ -1,0 +1,29 @@
+{
+  "name": "coding_robot",
+  "version": "0.0.1",
+  "description": "钉钉的 Coding 机器人",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run test-style && echo 'test finish'",
+    "test-style": "./node_modules/standard/bin/cmd.js | ./node_modules/snazzy/bin/cmd.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiedacon/coding_robot.git"
+  },
+  "keywords": [
+    "dingding",
+    "coding",
+    "robot"
+  ],
+  "author": "xiedacon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiedacon/coding_robot/issues"
+  },
+  "homepage": "https://github.com/xiedacon/coding_robot#README.md",
+  "devDependencies": {
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  }
+}
