@@ -25,5 +25,10 @@
   "devDependencies": {
     "snazzy": "^7.0.0",
     "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "superagent": "^3.6.3",
+    "to-markdown": "^3.1.0"
   }
 }
