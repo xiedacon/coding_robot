@@ -10,9 +10,10 @@ const base = `https://${coding.domain}`
 const projectUrl = `${base}/api/user/${coding.user}/project/${coding.project}`
 
 exports.CommitLineNote = async function (activity) {
-  switch (activity.action) {
-    case 'comment':
+  switch (activity.line_note.noteable_type) {
+    case 'MergeRequestBean':
       let mergeId = activity.line_note.noteable_url.split('/').pop()
+
       let merge = await getMerge(mergeId)
       if (!merge) return
 
@@ -21,6 +22,18 @@ exports.CommitLineNote = async function (activity) {
         base + activity.line_note.noteable_url,
         toMarkdown(activity.line_note.content),
         [merge.merge_request.author.name]
+      )
+    case 'Commit':
+      let commitId = activity.line_note.commit_id
+
+      let comment = await getCommit(commitId)
+      if (!comment) return
+
+      return dingding.markdown(
+        activity.line_note.noteable_title,
+        base + activity.line_note.noteable_url,
+        toMarkdown(activity.line_note.content),
+        [comment.commitDetail.committer.name]
       )
     default:
       console.log(activity)
@@ -176,7 +189,6 @@ exports.Project = function (activity) {
 }
 
 let mergeCache = Object.create(null)
-
 async function getMerge (id) {
   let merge = mergeCache[id]
   try {
@@ -188,4 +200,18 @@ async function getMerge (id) {
 
   mergeCache[id] = merge
   return merge
+}
+
+let commitCache = Object.create(null)
+async function getCommit (id) {
+  let commit = commitCache[id]
+  try {
+    if (!commit) commit = await request(`${projectUrl}/git/commit/${id}`)
+  } catch (err) {
+    if (err.message.indexOf('1212') < 0) throw err
+    else return
+  }
+
+  commitCache[id] = commit
+  return commit
 }
