@@ -10,6 +10,17 @@
 
 ## API
 
+## TODO
+
+* 消息模板抽离
+  * [x] 抽离模板
+  * [ ] 找一个好的方式呈现模板
+  * [ ] 数据存储
+* 错误处理策略
+* 控制策略
+* web 端可视化配置
+* serverless
+
 ## License
 
 [MIT License](https://github.com/xiedacon/coding_robot/blob/master/LICENSE)
