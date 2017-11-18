@@ -18,5 +18,7 @@ exports.core = {
   // 钉钉机器人频率限制
   limit: 20,
   interval: 60,
-  manager: ['Coding 机器人管理员']
+  managers: ['Coding 机器人管理员']
 }
+
+exports.template = {}
