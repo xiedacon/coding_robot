@@ -1,5 +1,7 @@
 'use strict'
 
+const { resolve } = require('path')
+
 exports.dingding = {
   hook: '钉钉机器人 webhook 地址',
   users: [
@@ -21,4 +23,4 @@ exports.core = {
   managers: ['Coding 机器人管理员']
 }
 
-exports.template = {}
+exports.messagesPath = resolve(__dirname, './messages.md')
