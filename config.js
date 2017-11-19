@@ -1,6 +1,7 @@
 'use strict'
 
 const { resolve } = require('path')
+const Store = require('./lib/store')
 
 exports.dingding = {
   hook: '钉钉机器人 webhook 地址',
@@ -24,3 +25,5 @@ exports.core = {
 }
 
 exports.messagesPath = resolve(__dirname, './messages.md')
+
+exports.store = new Store()
