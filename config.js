@@ -4,7 +4,13 @@ const { resolve } = require('path')
 const Store = require('./lib/store')
 
 exports.dingding = {
-  hook: '钉钉机器人 webhook 地址',
+  robots: [
+    {
+      actions: ['机器人需要监听的 action 类型匹配'],
+      hook: '钉钉机器人 webhook 地址',
+      remark: 'develop'
+    }
+  ],
   users: [
     { realname: '钉钉昵称', name: '钉钉手机号' }
   ]
