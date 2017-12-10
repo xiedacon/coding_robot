@@ -9,8 +9,11 @@ const coding = require('./lib/coding')
 const { sendMsgs } = require('./lib/msg')
 const { core } = require('./config')
 
+let before = Date.now()
 schedule.scheduleJob(core.schedule, async () => {
-  await sendMsgs(Date.now())
+  let _before = before
+  before = Date.now()
+  await sendMsgs(_before)
 })
 
 process.on('unhandledRejection', async (reason, promise) => {
