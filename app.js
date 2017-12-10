@@ -4,6 +4,7 @@ const fs = require('fs')
 const { resolve } = require('path')
 
 const dingding = require('./lib/dingding')
+const coding = require('./lib/coding')
 const { sendMsgs } = require('./lib/msg')
 const { core } = require('./config')
 
@@ -20,13 +21,9 @@ let before = Date.now();
   }, interval * 1000)
 })()
 
-process.on('unhandledRejection', (reason, promise) => {
+process.on('unhandledRejection', async (reason, promise) => {
   fs.writeFileSync(resolve(__dirname, './error'), reason.stack)
-  let msg = dingding.markdown([
-    '#### **[Error]** [程序发生错误]()',
-    `@${core.manager}`
-  ])
-  dingding.send(msg)
+  dingding.send(await coding.error())
 })
 
 console.log('start app\n')
