@@ -1,7 +1,7 @@
 'use strict'
 
-const test = require('ava').default
 const _ = require('lodash')
+const test = require('ava').default
 
 const assets = require('./asset')
 

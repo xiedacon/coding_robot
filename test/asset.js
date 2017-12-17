@@ -3,6 +3,12 @@
 const _ = require('lodash')
 const rewire = require('rewire')
 
+const config = require('../config')
+config.core = {
+  schedule: '0 * * * * *',
+  managers: ['test']
+}
+
 const dingding = rewire('../lib/dingding')
 
 let enter = dingding.__get__('enter')

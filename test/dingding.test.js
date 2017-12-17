@@ -1,10 +1,10 @@
 'use strict'
 
-const rewire = require('rewire')
 const _ = require('lodash')
+const rewire = require('rewire')
 
-const dingding = rewire('../lib/dingding')
 const test = require('./tester')('dingding')
+const dingding = rewire('../lib/dingding')
 
 const enter = dingding.__get__('enter')
 
