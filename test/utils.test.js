@@ -1,40 +1,26 @@
 'use strict'
 
-const { default: test } = require('ava')
-
+const test = require('./tester')('utils')
 const utils = require('../lib/utils')
 
-test.beforeEach((t) => {
-  t.context = {
-    test: 'test',
-    1: {
-      2: {
-        3: {
-          4: '4'
-        }
-      }
-    }
-  }
+test('utils.get: it should work', (t, context) => {
+  t.is(utils.get(context, 'test'), context.test)
 })
 
-test('utils.get: it should work', (t) => {
-  t.is(utils.get(t.context, 'test'), t.context.test)
+test('utils.get: it should work with default value', (t, { obj }) => {
+  t.is(utils.get(obj, 'a', 0), 0)
 })
 
-test('utils.get: it should work with default value', (t) => {
-  t.is(utils.get(t.context, 'a', 0), 0)
+test('utils.get: it should work with path', (t, { obj }) => {
+  t.is(utils.get(obj, '1.2.3.4'), obj[1][2][3][4])
 })
 
-test('utils.get: it should work with path', (t) => {
-  t.is(utils.get(t.context, '1.2.3.4'), t.context[1][2][3][4])
+test('utils.get: it should work with array path', (t, { obj }) => {
+  t.is(utils.get(obj, [1, 2, 3, 4]), obj[1][2][3][4])
 })
 
-test('utils.get: it should work with array path', (t) => {
-  t.is(utils.get(t.context, [1, 2, 3, 4]), t.context[1][2][3][4])
-})
-
-test('utils.get: it should return default value with unlawful path', (t) => {
-  t.is(utils.get(t.context, { test: 'test' }, 0), 0)
+test('utils.get: it should return default value with unlawful path', (t, context) => {
+  t.is(utils.get(context, { test: 'test' }, 0), 0)
 })
 
 test('utils.set: it should work', (t) => {
