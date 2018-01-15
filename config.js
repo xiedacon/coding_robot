@@ -13,7 +13,8 @@ exports.dingding = {
   ],
   users: [
     { realname: '钉钉昵称', name: '钉钉手机号' }
-  ]
+  ],
+  Render: "钉钉消息渲染函数，默认：require('./render/markdown')"
 }
 
 exports.coding = {
