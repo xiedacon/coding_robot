@@ -24,6 +24,7 @@
 * 控制策略
 * web 端可视化配置
 * serverless
+* 使用 class 语法重构
 
 ## License
 
