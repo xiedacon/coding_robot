@@ -12,7 +12,8 @@ node_js:
 # 1. OPTIONAL Install apt addons
 # 2. OPTIONAL Install cache components
 # 3. before_install
-# 4. install
+install:
+  - npm install -g codecov
 # 5. before_script
 # 6. script
 script: 
@@ -24,4 +25,6 @@ script:
 # 9. OPTIONAL before_deploy
 # 10. OPTIONAL deploy
 # 11. OPTIONAL after_deploy
-# 12. after_script
+after_script:
+  - npm run report
+  - codecov
