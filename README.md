@@ -11,7 +11,7 @@ git clone https://github.com/xiedacon/coding_robot.git
 
 cd ./coding_robot
 cp ./config.example.js ./config.js
-cp ./message.examples.md ./messages.md
+cp ./messages.example.md ./messages.md
 
 修改 config.js: 
   dingding.hook => 钉钉机器人 webhook 地址
