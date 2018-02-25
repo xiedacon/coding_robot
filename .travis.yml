@@ -16,6 +16,8 @@ node_js:
 # 5. before_script
 # 6. script
 script: 
+  - cp ./config.example.js ./config.js
+  - cp ./messages.example.md ./messages.md
   - npm run test
 # 7. OPTIONAL before_cache ( for cleaning up cache )
 # 8. after_success or after_failure:
