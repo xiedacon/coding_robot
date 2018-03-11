@@ -10,7 +10,7 @@ test('it should work', async (t) => {
 
   await store.set('test', 'test')
 
-  t.is(store.get('test'), 'test')
+  t.is(await store.get('test'), 'test')
 })
 
 test('it should clear store', async (t) => {
