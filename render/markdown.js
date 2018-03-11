@@ -70,7 +70,7 @@ function mergeMarkdown (msgs) {
   let title = msgs.map(msg => msg.markdown.title).join(' & ')
   let text = msgs.map(msg => msg.markdown.text).join(`${enter} —————————————— ${enter}`)
   let ats = Array.from(new Set(msgs.reduce((ats, msg) => ats.concat(msg.at.atMobiles), [])))
-  let atAll = msgs.reduce((atAll, msg) => atAll || msg.at.isAtAll, false)
+  let atAll = msgs.some(msg => msg.at.isAtAll)
 
   return {
     'msgtype': 'markdown',
