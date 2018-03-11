@@ -31,7 +31,7 @@ Render.prototype.render = function (title = Date.now(), lines = []) {
     if (text.indexOf(`@${user.realname}`) < 0) return text
 
     ats.push(user.name)
-    return text.replace(`@${user.realname}`, `@${user.name}`)
+    return text.replace(new RegExp(`@${user.realname}`, 'g'), `@${user.name}`)
   }, lines.join(enter).replace(/\[@([^\]]*)\]\([^)]*\)/g, '@$1'))
 
   return {
