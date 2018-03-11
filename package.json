@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "npm run test-style && npm run test-cov && echo '\n\ntest finish'",
-    "test-ava": "ava test/**/*.test.js",
+    "test-ava": "ava test/**",
     "test-style": "./node_modules/standard/bin/cmd.js | ./node_modules/snazzy/bin/cmd.js",
     "test-cov": "nyc ava test/**/*.test.js",
     "report": "nyc report --reporter=text-lcov > coverage.lcov",
