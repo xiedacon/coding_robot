@@ -89,3 +89,40 @@ test('it should work when two @someone inline', (t) => {
     }
   })
 })
+
+test('it should work without title', (t) => {
+  let mk = new Markdown(config)
+
+  let now = Date.now
+  Date.now = () => 1
+
+  t.deepEqual(mk.render(undefined, asset.lines), {
+    'msgtype': 'markdown',
+    'markdown': {
+      title: Date.now(),
+      text: asset.lines.join(Markdown.__get__('enter'))
+    },
+    'at': {
+      'atMobiles': [],
+      'isAtAll': false
+    }
+  })
+
+  Date.now = now
+})
+
+test('it should work without lines', (t) => {
+  let mk = new Markdown(config)
+
+  t.deepEqual(mk.render(asset.title), {
+    'msgtype': 'markdown',
+    'markdown': {
+      title: asset.title,
+      text: ''
+    },
+    'at': {
+      'atMobiles': [],
+      'isAtAll': false
+    }
+  })
+})

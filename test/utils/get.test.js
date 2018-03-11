@@ -36,3 +36,7 @@ test('it should work with array path', (t) => {
 test('it should return default value with unlawful path', (t) => {
   t.is(utils.get(asset, { test: 'test' }, 0), 0)
 })
+
+test('it should return default value without obj', (t) => {
+  t.is(utils.get(undefined, [1], 0), 0)
+})

@@ -18,3 +18,11 @@ test('it should work with arry path', (t) => {
 test('it should return self with unlawful path', (t) => {
   t.deepEqual(utils.set({}, { test: 'test' }, 'test'), {})
 })
+
+test('it should direct return when obj is undefined', (t) => {
+  t.deepEqual(utils.set(undefined), undefined)
+})
+
+test('it should return self when path is empty arry', (t) => {
+  t.deepEqual(utils.set({}, [], 'test'), {})
+})
