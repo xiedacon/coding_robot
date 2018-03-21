@@ -137,12 +137,13 @@ markdown 提醒
 
 ## TODO
 
-* 错误处理策略
-* 控制策略
-* test
-* web 端可视化配置
-* serverless
-* 使用 class 语法重构
+* [ ] 错误处理策略
+* [ ] 控制策略
+* [x] test
+* [ ] web 端可视化配置
+* [ ] serverless
+* [ ] 使用 class 语法重构
+* [x] lru cache
 
 ## License
 
