@@ -39,6 +39,7 @@
     "art-template": "^4.12.2",
     "bluebird": "^3.5.1",
     "cron-parser": "^2.4.3",
+    "lru-cache": "^4.1.2",
     "node-schedule": "^1.2.5",
     "superagent": "^3.6.3",
     "to-markdown": "^3.1.0"

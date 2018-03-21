@@ -1,7 +1,6 @@
 'use strict'
 
 const { resolve } = require('path')
-const Store = require('./lib/store')
 
 exports.dingding = {
   robots: [
@@ -30,5 +29,3 @@ exports.core = {
 }
 
 exports.messagesPath = resolve(__dirname, './messages.md')
-
-exports.store = new Store()
